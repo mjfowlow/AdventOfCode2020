@@ -62,4 +62,44 @@ problem1()
 
 #What is the ID of your seat?
 
+def problem2():
+    #Get boarding passes and split by pass
+    boardingPasses = open("input.txt")
+    boardingPasses = boardingPasses.read().split("\n")
+
+    #
+    seatIds = []
+    for boardingPass in boardingPasses:
+        #Get row
+        lowerRow = 0
+        upperRow = 127
+        for i in range(0, 7):
+            difference = upperRow - lowerRow
+            if(boardingPass[i] == "F"):
+                upperRow = lowerRow +(difference // 2)
+            else:
+                lowerRow = upperRow -(difference // 2)
+            row = upperRow
+        #Get Column
+        lowerColumn = 0
+        upperColumn = 7
+        for i in range(7, 10):
+            difference = upperColumn - lowerColumn
+            if(boardingPass[i] == "L"):
+                upperColumn = lowerColumn +(difference // 2)
+            else:
+                lowerColumn = upperColumn -(difference // 2)
+            column = upperColumn
+        #Add seat Id to the list of Ids
+        seatIds.append(row * 8 + column)
+    #Sort the ids
+    seatIds.sort()
+    #Iterate through and find the missing value
+    for i in range(len(seatIds)):
+        if(seatIds[i+1] == seatIds[i]+2):
+            print("Problem 2 Output", seatIds[i] + 1)
+            break
+
+problem2()
+
     
