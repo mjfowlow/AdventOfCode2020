@@ -55,7 +55,7 @@ def problem1():
 problem1()
 
 
-#               ---- Problem 2 ----
+#                           ---- Problem 2 ----
 #After some careful analysis, you believe that exactly one instruction is corrupted.
 #Somewhere in the program, either a jmp is supposed to be a nop, or a nop is supposed
 #to be a jmp. (No acc instructions were harmed in the corruption of this boot code.)
@@ -127,9 +127,6 @@ def runInstructions(instructions):
         else:
             index += 1
             
-    
-        
-
 problem2()
 
 
